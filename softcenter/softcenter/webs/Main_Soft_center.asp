@@ -38,6 +38,16 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
+.KoolshareBottom {
+	width: 230px;
+	height: 100px;
+	background: url(/res/koolshare.png) 0px 3px no-repeat;
+	text-align: left;
+	padding-left:150px;
+	padding-top:8px;
+	margin-top:20px;
+	float:right;
+}
 </style>
 <style>
     /* 软件中心icon新样式 by acelan */
@@ -748,9 +758,8 @@ function notice_show(){
 
                                                 </table>
                                             <div class="KoolshareBottom">论坛技术支持： <a href="http://www.koolshare.cn" target="_blank"> <i><u>www.koolshare.cn</u></i> </a>
-                                                <br/>博客技术支持： <a href="http://www.mjy211.com" target="_blank"> <i><u>www.mjy211.com</u></i> </a>
                                                 <br/>Github项目： <a href="https://github.com/koolshare/koolshare.github.io" target="_blank"> <i><u>github.com/koolshare</u></i> </a>
-                                                <br/>Shell by： <a href="mailto:sadoneli@gmail.com"> <i>sadoneli</i> </a>, Web by： <i>Xiaobao</i>
+                                                <br/>Powered by： <i>koolshare开发组</i>
                                             </div>
                                         </td>
                                     </tr>
