@@ -1,5 +1,8 @@
 Koolshare Asuswrt-Merlin shadowsocks Changelog
 ===========================================
+3.8.6
+   - fix	脚本：修复gfwlist模式下国内DNS解析的国内cdn问题。
+
 3.8.5
    - add	加入ss_post_start功能，可以在SS服务运行完毕后触发用户自己的脚本；
     		加入ss_pre_stop功能，可以在SS服务开始关闭前触发用户自己的脚本；
