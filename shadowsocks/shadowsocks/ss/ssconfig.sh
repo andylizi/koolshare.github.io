@@ -22,6 +22,8 @@ game_on=`dbus list ss_acl_mode|cut -d "=" -f 2 | grep 3`
 ip_prefix_hex=`nvram get lan_ipaddr | awk -F "." '{printf ("0x%02x", $1)} {printf ("%02x", $2)} {printf ("%02x", $3)} {printf ("00/0xffffff00\n")}'`
 ss_basic_password=`echo $ss_basic_password|base64_decode`
 IFIP=`echo $ss_basic_server|grep -E "([0-9]{1,3}[\.]){3}[0-9]{1,3}|:"`
+ARG_OBFS=""
+
 if [ -n "$ss_basic_rss_protocol" ];then
 	ss_basic_type=1
 else
@@ -328,10 +330,7 @@ resolv_server_ip(){
 		echo_date 检测到你的SS服务器已经是IP格式：$ss_basic_server,跳过解析... 
 	fi
 }
-# create shadowsocks config file...
-creat_ss_json(){
-	# simple obfs
-	ARG_OBFS=""
+ss_arg(){
 	if [ -n "$ss_basic_ss_obfs_host" ];then
 		if [ "$ss_basic_ss_obfs" == "http" ];then
 			ARG_OBFS="--plugin obfs-local --plugin-opts obfs=http;obfs-host=$ss_basic_ss_obfs_host"
@@ -349,7 +348,10 @@ creat_ss_json(){
 			ARG_OBFS=""
 		fi
 	fi
-	
+}
+# create shadowsocks config file...
+creat_ss_json(){
+	# simple obfs
 	if [ "$ss_basic_type" == "0" ];then
 		echo_date 创建SS配置文件到$CONFIG_FILE
 		cat > $CONFIG_FILE <<-EOF
@@ -1374,6 +1376,7 @@ apply_ss(){
 	echo_date ------------------------ 梅林固件 shadowsocks ------------------------
 	resolv_server_ip
 	# do not re generate json on router start, use old one
+	ss_arg
 	[ -z "$WAN_ACTION" ] && creat_ss_json
 	#creat_dnsmasq_basic_conf
 	load_cdn_site

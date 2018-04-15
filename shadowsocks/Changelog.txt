@@ -1,5 +1,8 @@
 Koolshare Asuswrt-Merlin shadowsocks Changelog
 ===========================================
+3.8.7
+   - fix	脚本：修复使用ss混淆节点，重启路由后不会启用混淆的问题。
+
 3.8.6
    - fix	脚本：修复gfwlist模式下国内DNS解析的国内cdn问题。
 
