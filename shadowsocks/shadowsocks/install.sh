@@ -12,16 +12,16 @@ case $(uname -m) in
   mips)
   	echo_date 本插件适用于koolshare merlin armv7l固件平台，mips平台不能安装！！！
   	echo_date 退出安装！
-    exit 0
+    	exit 1
     ;;
   x86_64)
 	echo_date 本插件适用于koolshare merlin armv7l固件平台，x86_64固件平台不能安装！！！
-	exit 0
+	exit 1
     ;;
   *)
   	echo_date 本插件适用于koolshare merlin armv7l固件平台，其它平台不能安装！！！
   	echo_date 退出安装！
-    exit 0
+    	exit 1
     ;;
 esac
 
@@ -109,7 +109,12 @@ fi
 
 #升级前先删除无关文件
 echo_date 清理旧文件
-rm -rf /koolshare/ss/*
+rm -rf /koolshare/ss/cru
+rm -rf /koolshare/ss/rules
+rm -rf /koolshare/ss/ssconfig.sh
+rm -rf /koolshare/ss/version
+rm -rf /koolshare/ss/*.json
+rm -rf /koolshare/ss/postscripts/change_my_name.sh
 rm -rf /koolshare/scripts/ss_*
 rm -rf /koolshare/webs/Main_Ss*
 rm -rf /koolshare/bin/ss-redir
